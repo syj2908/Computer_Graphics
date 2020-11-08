@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def Drawellipse(xc, yc, rx, ry):
+def Drawellipse(xc, yc, rx, ry, time_gap):
     xs = []
     ys = []
     x = 0
@@ -39,12 +39,12 @@ def Drawellipse(xc, yc, rx, ry):
         if i == 0:
             plt.scatter(xs[i] + xc, ys[i] + yc, color='k', s=1)
             plt.scatter(xs[i] + xc, -ys[i] + yc, color='k', s=1)
-            plt.pause(0.1)
+            plt.pause(time_gap)
         else:
             plt.scatter(xs[i] + xc, ys[i] + yc, color='k', s=1)
             plt.scatter(-xs[i] + xc, ys[i] + yc, color='k', s=1)
             plt.scatter(xs[i] + xc, -ys[i] + yc, color='k', s=1)
             plt.scatter(-xs[i] + xc, -ys[i] + yc, color='k', s=1)
-            plt.pause(0.1)
+            plt.pause(time_gap)
             plt.draw()
     plt.show()

@@ -16,27 +16,31 @@ def drawdda(ui):
     y0 = int(ui.DDA_start_y.text())
     x1 = int(ui.DDA_end_x.text())
     y1 = int(ui.DDA_end_y.text())
-    DrawDDA(x0, y0, x1, y1)
+    time_gap = float(ui.time_gap.text())
+    DrawDDA(x0, y0, x1, y1, time_gap)
 
 def drawbre(ui):
     x0 = int(ui.B_start_x.text())
     y0 = int(ui.B_start_y.text())
     x1 = int(ui.B_end_x.text())
     y1 = int(ui.B_end_y.text())
-    DrawBre(x0, y0, x1, y1)
+    time_gap = float(ui.time_gap.text())
+    DrawBre(x0, y0, x1, y1, time_gap)
     
 def drawcircle(ui):
     x = int(ui.circle_x.text())
     y = int(ui.circle_y.text())
     r = int(ui.circle_r.text())
-    Drawcircle(x, y, r)
+    time_gap = float(ui.time_gap.text())
+    Drawcircle(x, y, r, time_gap)
     
 def drawellipse(ui):
     x = int(ui.ellipse_x.text())
     y = int(ui.ellipse_y.text())
     long = int(ui.ellipse_long.text())
     short = int(ui.ellipse_short.text())
-    Drawellipse(x, y, long, short)
+    time_gap = float(ui.time_gap.text())
+    Drawellipse(x, y, long, short,time_gap)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

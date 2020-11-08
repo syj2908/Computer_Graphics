@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 def ROUND(a):
 	return int(a + 0.5)
 
-def DrawDDA(x1, y1, x2, y2):
+def DrawDDA(x1, y1, x2, y2, time_gap):
     xs = []
     ys = []
     x, y = x1, y1
@@ -32,6 +32,6 @@ def DrawDDA(x1, y1, x2, y2):
     plt.ylabel('Y')
     for i in range(0,len(xs)):
         plt.scatter(xs[i], ys[i], color='k', s=1)
-        plt.pause(0.1)
+        plt.pause(float(time_gap))
         plt.draw()
     plt.show()

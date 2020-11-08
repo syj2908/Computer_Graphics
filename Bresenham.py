@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def DrawBre(x1, y1, x2, y2):
+def DrawBre(x1, y1, x2, y2, time_gap):
     steep = 0
     dx = abs(x2 - x1)
     if (x2 - x1) > 0:
@@ -46,6 +46,6 @@ def DrawBre(x1, y1, x2, y2):
     plt.ylabel('Y')
     for i in range(len(xs)):
         plt.scatter(xs[i], ys[i], color='k', s=1)
-        plt.pause(0.1)
+        plt.pause(time_gap)
         plt.draw()
     plt.show()

@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def Drawcircle(x_off, y_off, r):
+def Drawcircle(x_off, y_off, r, time_gap):
     xs =[]
     ys =[]
     x = 0
@@ -32,7 +32,7 @@ def Drawcircle(x_off, y_off, r):
             plt.scatter(xs[i] + x_off, -ys[i] + y_off, color='k', s=1)
             plt.scatter(ys[i] + x_off, xs[i] + y_off, color='k', s=1)
             plt.scatter(ys[i] + x_off, -xs[i] + y_off, color='k', s=1)
-            plt.pause(0.1)
+            plt.pause(time_gap)
         else:
             plt.scatter(xs[i] + x_off, ys[i] + y_off, color='k', s=1)
             plt.scatter(-xs[i] + x_off, ys[i] + y_off, color='k', s=1)
@@ -42,6 +42,6 @@ def Drawcircle(x_off, y_off, r):
             plt.scatter(-ys[i] + x_off, xs[i] + y_off, color='k', s=1)
             plt.scatter(ys[i] + x_off, -xs[i] + y_off, color='k', s=1)
             plt.scatter(-ys[i] + x_off, -xs[i] + y_off, color='k', s=1)
-            plt.pause(0.1)
+            plt.pause(time_gap)
             plt.draw()
     plt.show()
