@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def DrawBre(x1, y1, x2, y2, time_gap):
+def DrawBre(x1, y1, x2, y2, time_gap, fixed_axis):
     steep = 0
     dx = abs(x2 - x1)
     if (x2 - x1) > 0:
@@ -40,7 +40,8 @@ def DrawBre(x1, y1, x2, y2, time_gap):
     plt.axis('equal')
     plt.axvline(x=0, linewidth=1, color='k')
     plt.axhline(y=0, linewidth=1, color='k')
-    #plt.axis([-100, 100, -100, 100])
+    if(fixed_axis):
+        plt.axis([-100, 100, -100, 100])
     plt.title("Bresenham algorithm")
     plt.xlabel('X')
     plt.ylabel('Y')

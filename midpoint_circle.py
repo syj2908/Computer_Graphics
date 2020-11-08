@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def Drawcircle(x_off, y_off, r, time_gap):
+def Drawcircle(x_off, y_off, r, time_gap, fixed_axis):
     xs =[]
     ys =[]
     x = 0
@@ -22,7 +22,8 @@ def Drawcircle(x_off, y_off, r, time_gap):
     plt.axis('equal')
     plt.axvline(x=0,linewidth=1, color='k')
     plt.axhline(y=0,linewidth=1, color='k')
-    #plt.axis([-100, 100, -100, 100])
+    if(fixed_axis):
+        plt.axis([-100, 100, -100, 100])
     plt.title('midpoint_circle algorithm')
     plt.xlabel('X')
     plt.ylabel('Y')

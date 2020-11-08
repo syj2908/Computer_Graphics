@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def Drawellipse(xc, yc, rx, ry, time_gap):
+def Drawellipse(xc, yc, rx, ry, time_gap, fixed_axis):
     xs = []
     ys = []
     x = 0
@@ -31,7 +31,8 @@ def Drawellipse(xc, yc, rx, ry, time_gap):
     plt.axis('equal')
     plt.axvline(x=0, linewidth=1, color='k')
     plt.axhline(y=0, linewidth=1, color='k')
-    #plt.axis([-100, 100, -100, 100])
+    if (fixed_axis):
+        plt.axis([-100, 100, -100, 100])
     plt.title('midpoint_ellipse algorithm')
     plt.xlabel('X')
     plt.ylabel('Y')

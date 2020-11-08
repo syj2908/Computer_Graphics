@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 def ROUND(a):
 	return int(a + 0.5)
 
-def DrawDDA(x1, y1, x2, y2, time_gap):
+def DrawDDA(x1, y1, x2, y2, time_gap, fixed_axis):
     xs = []
     ys = []
     x, y = x1, y1
@@ -26,7 +26,8 @@ def DrawDDA(x1, y1, x2, y2, time_gap):
     plt.axis('equal')
     plt.axvline(x=0, linewidth=1, color='k')
     plt.axhline(y=0, linewidth=1, color='k')
-    #plt.axis([-100, 100, -100, 100])
+    if (fixed_axis):
+        plt.axis([-100, 100, -100, 100])
     plt.title("DDA algorithm")
     plt.xlabel('X')
     plt.ylabel('Y')
