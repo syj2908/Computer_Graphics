@@ -5,28 +5,33 @@ def Drawellipse(xc, yc, rx, ry, time_gap, fixed_axis):
     ys = []
     x = 0
     y = ry
-    p = (ry * ry) - (rx * rx * ry) + ((rx * rx) / 4)
-    while (x * ry * ry) < (y * rx * rx):
-        xs.append(x)
-        ys.append(y)
+    xs.append(x)
+    ys.append(y)
+
+    p = ry * ry +rx*rx*(-ry+0.25)
+    while ry*ry * (x + 1) < rx*rx * (y - 0.5):
+        #椭圆上部
         if p < 0:
-            x += 1
-            p += (2 * ry * ry * x) + (ry * ry)
+            p += ry*ry * (2 * x + 3)
         else:
-            x += 1
             y -= 1
-            p += (2 * ry * ry * x + ry * ry) - (2 * rx * rx * y)
-    p = (x + 0.5) * (x + 0.5) * ry * ry + (y - 1) * (y - 1) * rx * rx - rx * rx * ry * ry
-    while (y > 0):
+            p += ry*ry * (2 * x + 3) + rx*rx * (-2 * y + 2)
+        x+=1
         xs.append(x)
         ys.append(y)
+
+    p = (ry * (x + 0.5)) *(ry * (x + 0.5))  + (rx * (y - 1)) * (rx * (y - 1)) - (rx * ry) * (rx * ry)
+    while (y > 0):
+        #椭圆下部
         if p > 0:
-            y -= 1
-            p -= (2 * rx * rx * y) + (rx * rx)
+            p += rx*rx * (-2 * y + 3)
         else:
             x += 1
-            y -= 1
-            p += (2 * ry * ry * x) - (2 * rx * rx * y) - (rx * rx)
+            p += ry*ry * (2 * x + 2) + rx*rx * (-2 * y + 3)
+        y-=1
+        xs.append(x)
+        ys.append(y)
+
     plt.show()
     plt.axis('equal')
     plt.axvline(x=0, linewidth=1, color='k')
