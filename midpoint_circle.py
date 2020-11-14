@@ -5,19 +5,21 @@ def Drawcircle(x_off, y_off, r, time_gap, fixed_axis):
     ys =[]
     x = 0
     y = r
-    p = 5 / 4.0 - r
+    p = 1 - r
     xs.append(x)
     ys.append(y)
     while x < y:
         if p < 0:
-            x += 1
-            p += 2 * x + 1
+            #中点在圆内
+            p += 2 * x + 3
         else:
-            x += 1
+            #中点在圆外
             y -= 1
-            p += 2 * (x - y) + 1
+            p += 2 * (x - y) + 5
+        x+=1
         xs.append(x)
         ys.append(y)
+
     plt.show()
     plt.axis('equal')
     plt.axvline(x=0,linewidth=1, color='k')
