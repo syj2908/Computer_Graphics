@@ -6,17 +6,24 @@ def ROUND(a):
 def DrawDDA(x1, y1, x2, y2, time_gap, fixed_axis):
     xs = []
     ys = []
-    x, y = x1, y1
+    x=x1
+    y=y1
+    #初始点
     xs.append(ROUND(x))
     ys.append(ROUND(y))
     dx = int(x2 - x1)
     dy = int(y2 - y1)
+
     if abs(dx) > abs(dy):
+        #x方向跨度更大
         steps = abs(dx)
     else:
+        #y方向跨度更大
         steps = abs(dy)
+    #增量
     xInc = float(dx) / float(steps)
     yInc = float(dy) / float(steps)
+    
     for i in range(steps):
         x += xInc
         y += yInc
