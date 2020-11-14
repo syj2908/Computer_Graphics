@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from functools import partial
 
 from dda import DrawDDA
-from Bresenham import DrawBre
+from Bresenham import DrawBresenham
 from midpoint_circle import Drawcircle
 from midpoint_ellipse import Drawellipse
 import mainGUI
@@ -20,14 +20,14 @@ def drawdda(ui):
     fixed_axis = ui.fixed_axis.isChecked()
     DrawDDA(x0, y0, x1, y1, time_gap, fixed_axis)
 
-def drawbre(ui):
+def drawbresenham(ui):
     x0 = int(ui.B_start_x.text())
     y0 = int(ui.B_start_y.text())
     x1 = int(ui.B_end_x.text())
     y1 = int(ui.B_end_y.text())
     time_gap = float(ui.time_gap.text())
     fixed_axis = ui.fixed_axis.isChecked()
-    DrawBre(x0, y0, x1, y1, time_gap, fixed_axis)
+    DrawBresenham(x0, y0, x1, y1, time_gap, fixed_axis)
     
 def drawcircle(ui):
     x = int(ui.circle_x.text())
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     MainWindow.show()
 
     ui.DDA_go.clicked.connect(partial(drawdda, ui))
-    ui.B_go.clicked.connect(partial(drawbre, ui))
+    ui.B_go.clicked.connect(partial(drawbresenham, ui))
     ui.circle_go.clicked.connect(partial(drawcircle, ui))
     ui.ellipse_go.clicked.connect(partial(drawellipse, ui))
     
