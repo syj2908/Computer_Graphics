@@ -5,17 +5,17 @@ def Drawcircle(x_off, y_off, r, time_gap, fixed_axis):
     ys =[]
     x = 0
     y = r
-    p = 1 - r
+    d = 1 - r
     xs.append(x)
     ys.append(y)
     while x < y:
-        if p < 0:
+        if d < 0:
             #中点在圆内
-            p += 2 * x + 3
+            d += 2 * x + 3
         else:
             #中点在圆外
             y -= 1
-            p += 2 * (x - y) + 5
+            d += 2 * (x - y) + 5
         x+=1
         xs.append(x)
         ys.append(y)
